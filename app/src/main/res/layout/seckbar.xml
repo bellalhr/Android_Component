@@ -8,9 +8,10 @@
         android:id="@+id/seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="10dp"
         android:layout_marginTop="30dp"
-       android:progressBackgroundTint="@color/colorPrimary"
+        android:thumb="@drawable/thamb"
+        android:progressBackgroundTint="@color/colorPrimary"
+        android:progressDrawable="@drawable/progress_type"
         />
     <Button
         android:id="@+id/getRatingBtn"

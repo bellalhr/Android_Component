@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,12 +14,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.seckbar);
+        setContentView(R.layout.spinner);
 
        // getRatingBar();
 
-        getSeekbar();
+        //getSeekbar();
+
+        //getBaseSpinner
+        customSpinnerLayout();
     }
+
+
 
     private void getRatingBar() {
         Button ratinBtn=findViewById(R.id.getRatingBtn);
@@ -43,14 +49,35 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void customSpinnerLayout()
+    {
+        Spinner spinner=findViewById(R.id.spinner);
+        spinner.setPrompt("Select Country");
+        int[] flags={
+                R.drawable.bird_10,
+                R.drawable.bird_11,
+                R.drawable.bird_20,
+                R.drawable.bird_21,
+                R.drawable.bird_22,
+                R.drawable.bird_23,
+        };
+
+        String[] countryName={"Bangladesh","India","Sri Lanka","Japan","Australia","Singapur"};
+
+        SpinnerBaseAdapter adapter=new SpinnerBaseAdapter(this,flags,countryName);
+        spinner.setAdapter(adapter);
+
+
     }
 
 

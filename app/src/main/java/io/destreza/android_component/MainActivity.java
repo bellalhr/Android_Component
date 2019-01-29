@@ -18,7 +18,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+import android.widget.Spinner;
+>>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
 import android.widget.Toast;
 
 import java.io.File;
@@ -34,12 +38,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(R.layout.multi_language_support);
+=======
+        setContentView(R.layout.spinner);
+>>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
 
        // getRatingBar();
 
         //getSeekbar();
 
+<<<<<<< HEAD
         //createMultiEditTextOnClick();
 
         //pdfFileGenerate();
@@ -169,7 +178,13 @@ public class MainActivity extends AppCompatActivity {
                 count=0;
             }
         });
+=======
+        //getBaseSpinner
+        customSpinnerLayout();
+>>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
     }
+
+
 
     private void getRatingBar() {
         Button ratinBtn=findViewById(R.id.getRatingBtn);
@@ -194,14 +209,35 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "OnProgressChanged "+seekBar.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void customSpinnerLayout()
+    {
+        Spinner spinner=findViewById(R.id.spinner);
+        spinner.setPrompt("Select Country");
+        int[] flags={
+                R.drawable.bird_10,
+                R.drawable.bird_11,
+                R.drawable.bird_20,
+                R.drawable.bird_21,
+                R.drawable.bird_22,
+                R.drawable.bird_23,
+        };
+
+        String[] countryName={"Bangladesh","India","Sri Lanka","Japan","Australia","Singapur"};
+
+        SpinnerBaseAdapter adapter=new SpinnerBaseAdapter(this,flags,countryName);
+        spinner.setAdapter(adapter);
+
+
     }
 
 

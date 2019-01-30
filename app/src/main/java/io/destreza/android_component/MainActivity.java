@@ -1,6 +1,8 @@
 package io.destreza.android_component;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -13,21 +15,24 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
-<<<<<<< HEAD
+
 import android.widget.TextView;
-=======
+
 import android.widget.Spinner;
->>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,23 +43,94 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-        setContentView(R.layout.multi_language_support);
-=======
-        setContentView(R.layout.spinner);
->>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
+
+        setContentView(R.layout.hide_unhide_icon);
+
+
+
+
+
 
        // getRatingBar();
 
         //getSeekbar();
 
-<<<<<<< HEAD
+
         //createMultiEditTextOnClick();
 
         //pdfFileGenerate();
 
-        getMultiLanguage();
+        //getMultiLanguage();
 
+        //getGridView();
+
+        //hideAndroidIcon();
+
+
+
+    }
+
+    private void hideAndroidIcon() {
+        Button hide=findViewById(R.id.hide);
+        Button show=findViewById(R.id.show);
+        hide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PackageManager p = getPackageManager();
+                ComponentName componentName = new ComponentName(MainActivity.this, MainActivity.class);
+                p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            }
+        });
+        //show app
+
+        /*PackageManager p = getPackageManager();
+        ComponentName componentName = new ComponentName(this, MainActivity.class);
+        p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);*/
+    }
+
+    private void getGridView() {
+        GridView gridView=findViewById(R.id.gridView);
+        ArrayList<String> playerList=new ArrayList<>();
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Tamim Iqbal");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Tamim Iqbal");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Mashrafre Mortaza");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+        playerList.add("Shakib Al Hasan");
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,playerList);
+        gridView.setAdapter(adapter);
+
+
+      gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              startActivity(new Intent(MainActivity.this,Activity_Life_Cycle.class));
+          }
+      });
     }
 
     private void getMultiLanguage() {
@@ -178,10 +254,9 @@ public class MainActivity extends AppCompatActivity {
                 count=0;
             }
         });
-=======
+
         //getBaseSpinner
         customSpinnerLayout();
->>>>>>> e6a275648f84ea78836d49875d7b17dcfe8d092d
     }
 
 

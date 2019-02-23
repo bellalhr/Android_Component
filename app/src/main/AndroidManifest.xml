@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.destreza.android_component">
-    <!-- Permission for internet access-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- Permission for external memory  access-->
+
+    <!-- Permission for internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Permission for external memory  access -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- Permission for location access-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!-- Permission for change location access-->
+    <!-- Permission for location access -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Permission for change location access -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
@@ -20,10 +22,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".Activity_Life_Cycle" />
-        <activity android:name=".DataBinding.CustomBinding"></activity>
-        <activity android:name=".layoutToPdf.LayoutToPdfOrImage">
-
-        </activity>
+        <activity android:name=".DataBinding.CustomBinding" />
+        <activity android:name=".layoutToPdf.LayoutToPdfOrImage"></activity>
         <activity android:name=".locations.LocationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Room.RoomActivity"></activity>
     </application>
 
 </manifest>

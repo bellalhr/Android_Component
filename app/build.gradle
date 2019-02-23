@@ -37,4 +37,7 @@ dependencies {
     //Library for location service
     implementation 'com.google.android.gms:play-services-location:15.0.1'
 
+    //Room persistance
+  
+
 }

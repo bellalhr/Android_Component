@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+    </DatePicker>
+
+    <TextView
+        android:id="@+id/currentTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Date "
+        android:layout_below="@+id/datePicker"
+        android:gravity="center"
+        />
+    <Button
+        android:id="@+id/getSelectedDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Date"
+        android:layout_below="@+id/currentTV"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/showDatePickerDialog"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/currentTV"
+        android:layout_alignParentRight="true"
+        android:text="Show Date Picker"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

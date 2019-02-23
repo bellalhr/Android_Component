@@ -1,5 +1,6 @@
 package io.destreza.android_component;
 
+import android.app.DatePickerDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -18,9 +20,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 
@@ -33,6 +37,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,11 +45,13 @@ public class MainActivity extends AppCompatActivity {
     //for multiLanguage support
     Locale myLocale;
     String currentLanguage = "en", currentLang;
+    int progressValue=0;
+    Handler handler=new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.hide_unhide_icon);
+        setContentView(R.layout.date_picker);
 
 
 
@@ -66,8 +73,109 @@ public class MainActivity extends AppCompatActivity {
 
         //hideAndroidIcon();
 
+        //Todo calling method for show progress bar
+        //showProgressBar();
+        // Todo calling method for show date picker
+       showDatePicker();
 
 
+
+    }
+
+    private void showDatePicker() {
+        final DatePicker datePicker=findViewById(R.id.datePicker);
+        Button selectedBtn=findViewById(R.id.getSelectedDateBtn);
+        final TextView currentDate=findViewById(R.id.currentTV);
+
+        final Button showDatePicker=findViewById(R.id.showDatePickerDialog);
+
+        //get current date
+        StringBuilder builder=new StringBuilder();
+        builder.append(datePicker.getMonth()+1+"/");
+        builder.append(datePicker.getDayOfMonth()+"/");
+        builder.append(datePicker.getYear());
+        currentDate.setText("Current Date : "+builder);
+
+
+        selectedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //get changeable date
+                StringBuilder builder=new StringBuilder();
+                builder.append(datePicker.getMonth()+1+"/");
+                builder.append(datePicker.getDayOfMonth()+"/");
+                builder.append(datePicker.getYear());
+                currentDate.setText("Change Date : "+builder);
+            }
+        });
+
+
+        showDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar=Calendar.getInstance();
+                int startYear=calendar.get(Calendar.YEAR);
+                int month=calendar.get(Calendar.MONTH);
+                int date=calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        showDatePicker.setText(i+"/"+(i1+1)+"/"+i2);
+                    }
+                },startYear,month,date);
+
+                datePickerDialog.show();
+            }
+        });
+
+
+
+    }
+
+    private void showProgressBar() {
+        final ProgressBar progressBar=findViewById(R.id.progressBar);
+        final TextView progressStatusTV=findViewById(R.id.progresStatus);
+
+
+
+        //progressBar.setProgress(progressValue);
+
+        Thread thread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (progressValue<=100)
+                {
+                    //progressStatusTV.setText(progressValue+"%");
+                    //doWork(progressValue,progressBar,progressStatusTV);
+                    try {
+                        Thread.sleep(500);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //progressBar.setProgress(progressValue);
+                            //progressStatusTV.setText(progressValue+"%");
+                            progressValue=progressValue+5;
+
+                            if(progressValue<=100)
+                                doWork(progressValue,progressBar,progressStatusTV);
+
+                        }
+                    });
+                }
+
+            }
+        });
+        thread.start();
+
+    }
+
+    private void doWork(int progressValue,ProgressBar progressBar,TextView progressTV) {
+        progressBar.setProgress(progressValue);
+        progressTV.setText(String.valueOf(progressValue)+"%");
     }
 
     private void hideAndroidIcon() {

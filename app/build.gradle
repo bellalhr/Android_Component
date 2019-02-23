@@ -37,10 +37,8 @@ dependencies {
     //Library for location service
     implementation 'com.google.android.gms:play-services-location:15.0.1'
 
-<<<<<<< HEAD
     //Room persistance
-  
-=======
+
     //Liabrary for loading
     implementation 'com.github.channguyen:adv:1.0.0'
     implementation 'com.github.tajchert:WaitingDots:0.4.0'
@@ -49,6 +47,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
->>>>>>> 88b07feefac90a45157bf866d6dd2e2a185f1553
 
 }

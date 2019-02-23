@@ -10,8 +10,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -31,6 +33,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.io.File;
@@ -47,11 +50,12 @@ public class MainActivity extends AppCompatActivity {
     String currentLanguage = "en", currentLang;
     int progressValue=0;
     Handler handler=new Handler();
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.date_picker);
+        setContentView(R.layout.time_picker_dialog);
 
 
 
@@ -76,9 +80,25 @@ public class MainActivity extends AppCompatActivity {
         //Todo calling method for show progress bar
         //showProgressBar();
         // Todo calling method for show date picker
-       showDatePicker();
+       //showDatePicker();
+
+        showTimePicker();
 
 
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void showTimePicker() {
+        final TimePicker timePicker=findViewById(R.id.timePicker);
+        Button timeBtn=findViewById(R.id.timePickeBtn);
+
+
+        StringBuilder builder=new StringBuilder();
+        builder.append(timePicker.getHour()+"/");
+        builder.append(timePicker.getMinute()+"/");
+       // builder.append(timePicker.get);
+        timeBtn.setText("Current Date : "+builder);
 
     }
 

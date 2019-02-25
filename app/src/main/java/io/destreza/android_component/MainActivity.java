@@ -100,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
        // builder.append(timePicker.get);
         timeBtn.setText("Current Date : "+builder);
 
+        timeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void showDatePicker() {

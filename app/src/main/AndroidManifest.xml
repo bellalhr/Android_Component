@@ -20,23 +20,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Room.RoomActivity" />
-        <activity android:name=".Activity_Life_Cycle">
-
-        </activity>
-        <activity android:name=".DataBinding.CustomBinding" />
-        <activity android:name=".layoutToPdf.LayoutToPdfOrImage" />
-        <activity android:name=".locations.LocationActivity" />
-        <activity android:name=".LoadingDialog.MainLoading" />
-        <activity android:name=".Retrofits.RetrofitActivity" />
-        <activity android:name=".SQLiteDatabase.DB_Activity"></activity>
-        <activity android:name=".Threads.BasicThread">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Room.RoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activity_Life_Cycle"></activity>
+        <activity android:name=".DataBinding.CustomBinding" />
+        <activity android:name=".layoutToPdf.LayoutToPdfOrImage" />
+        <activity android:name=".locations.LocationActivity" />
+        <activity android:name=".LoadingDialog.MainLoading" />
+        <activity android:name=".Retrofits.RetrofitActivity" />
+        <activity android:name=".SQLiteDatabase.DB_Activity" />
+        <activity android:name=".Threads.BasicThread">
+
+        </activity>
+        <activity android:name=".Sensor.SensorActivity">
+
         </activity>
     </application>
 

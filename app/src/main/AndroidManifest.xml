@@ -21,25 +21,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".Room.RoomActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Activity_Life_Cycle"></activity>
+        <activity android:name=".Room.RoomActivity"></activity>
+        <activity android:name=".Activity_Life_Cycle" />
         <activity android:name=".DataBinding.CustomBinding" />
         <activity android:name=".layoutToPdf.LayoutToPdfOrImage" />
         <activity android:name=".locations.LocationActivity" />
         <activity android:name=".LoadingDialog.MainLoading" />
         <activity android:name=".Retrofits.RetrofitActivity" />
         <activity android:name=".SQLiteDatabase.DB_Activity" />
-        <activity android:name=".Threads.BasicThread">
+        <activity android:name=".Threads.BasicThread" />
+        <activity android:name=".Sensor.SensorActivity" />
+        <activity android:name=".MotionLayoutExmp.MotionLayoutActivity">
 
         </activity>
-        <activity android:name=".Sensor.SensorActivity">
+        <activity android:name=".SubLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

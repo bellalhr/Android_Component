@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".Room.RoomActivity"></activity>
+        <activity android:name=".Room.RoomActivity" />
         <activity android:name=".Activity_Life_Cycle" />
         <activity android:name=".DataBinding.CustomBinding" />
         <activity android:name=".layoutToPdf.LayoutToPdfOrImage" />
@@ -31,10 +31,12 @@
         <activity android:name=".SQLiteDatabase.DB_Activity" />
         <activity android:name=".Threads.BasicThread" />
         <activity android:name=".Sensor.SensorActivity" />
-        <activity android:name=".MotionLayoutExmp.MotionLayoutActivity">
+        <activity android:name=".MotionLayoutExmp.MotionLayoutActivity" />
+        <activity android:name=".SubLayoutActivity"></activity>
+        <activity android:name=".SimpleLiveDataViewModel.SimpleActivity">
 
         </activity>
-        <activity android:name=".SubLayoutActivity">
+        <activity android:name=".MVVM.view.MvvmMainAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
